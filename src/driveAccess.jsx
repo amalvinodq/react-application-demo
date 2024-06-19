@@ -3,14 +3,14 @@ import { useState } from "react";
 
 function DriveAccess() {
 	const [auth, setAuth] = useState();
-	// const [code, setCode] = useState();
+	const [code, setCode] = useState();
 
 	const storeAuth = ($event) => {
 		setAuth($event.target.value);
 	};
-	// const storeCode = ($event) => {
-	// 	setCode($event.target.value);
-	// };
+	const storeCode = ($event) => {
+		setCode($event.target.value);
+	};
 	const generateLink = async () => {
 		console.log(auth, "auth");
 		// const response = await fetch("http://[::1]:3200/api/g-drive/permission-url", {
@@ -41,10 +41,6 @@ function DriveAccess() {
 	};
 	const generateToken = () => {
 		console.log(decodeURIComponent(code), "code");
-		const currentUrl = window.location.href;
-		const urlParams = new URLSearchParams(currentUrl);
-		const code = urlParams.get("code");
-		// const scope = urlParams.get("scope");
 		axios
 			.post(
 				"https://backend-dev.sokrateque.ai/api/g-drive/generate-token",
@@ -69,7 +65,7 @@ function DriveAccess() {
 		<div>
 			<p>this is something</p>
 			<input onChange={storeAuth} />
-			{/* <input onChange={storeCode} type="text" /> */}
+			<input onChange={storeCode} type="text" />
 
 			<button onClick={generateLink}>link</button>
 			<button onClick={generateToken}>token</button>
