@@ -19,7 +19,7 @@ function AskFile() {
 
 	const getAnswers = async () => {
 		const response = await axios.post(
-			"https://backend-dev.sokrateque.ai/api/questions/ask-files/0",
+			"https://backend-staging.sokrateque.ai/api/questions/ask-files/0",
 
 			{
 				filesList: fileId,
