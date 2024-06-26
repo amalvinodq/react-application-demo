@@ -26,7 +26,7 @@ function DriveAccess() {
 		// });
 		// console.log(response);
 		axios
-			.get(`https://backend-dev.sokrateque.ai/api/g-drive/permission-url`, {
+			.get(`https://backend-staging.sokrateque.ai/api/g-drive/permission-url`, {
 				headers: {
 					"Content-Type": "application/json",
 					Authorizations: auth,
@@ -43,7 +43,7 @@ function DriveAccess() {
 		console.log(decodeURIComponent(code), "code");
 		axios
 			.post(
-				"https://backend-dev.sokrateque.ai/api/g-drive/generate-token",
+				"https://backend-staging.sokrateque.ai/api/g-drive/generate-token",
 				{
 					code: decodeURIComponent(code),
 				},
